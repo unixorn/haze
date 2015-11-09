@@ -5,11 +5,19 @@
 
 from setuptools import setup, find_packages
 
+name = "haze"
 requirements = map(str.strip, open("requirements.txt").readlines())
 
 setup(
-  name = "haze",
+  name = name,
+  description = "Haze AWS utility functions",
   packages = find_packages(),
-  version = "0.0.1",
-  install_requires = requirements
+  version = "0.0.2",
+  install_requires = requirements,
+  entry_points = {
+    "console_scripts": [
+      "aws-instance-id = %s.commands.myinstanceid:cliInstanceID" % name,
+      ("aws-region = %s.commands.myregion:cliMyRegion" % name)
+    ]
+  }
 )

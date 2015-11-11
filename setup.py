@@ -12,7 +12,9 @@ setup(
   name = name,
   description = "Haze AWS utility functions",
   packages = find_packages(),
-  version = "0.0.3",
+  version = "0.0.4",
+  download_url = 'https://github.com/unixorn/haze/tarball/0.0.4',
+  keywords = ['aws', 'cloud'],
   install_requires = requirements,
   entry_points = {
     "console_scripts": [

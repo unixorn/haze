@@ -12,12 +12,12 @@ setup(
   name = name,
   description = "Haze AWS utility functions",
   packages = find_packages(),
-  version = "0.0.2",
+  version = "0.0.3",
   install_requires = requirements,
   entry_points = {
     "console_scripts": [
-      "aws-instance-id = %s.commands.myinstanceid:cliInstanceID" % name,
-      ("aws-region = %s.commands.myregion:cliMyRegion" % name)
+      "aws-instance-id = %s.commands.myinstanceid:awsInstanceID" % name,
+      ("aws-region = %s.commands.myregion:awsMyRegion" % name)
     ]
   }
 )

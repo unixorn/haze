@@ -61,7 +61,6 @@ def readInstanceTag(instanceID, tagName="Name", connection=None):
   if tagData:
     tagValue = tagData[0].value
   else:
-    tagValue = None
     raise RuntimeError, "%s: No such tag on %s" % (tagName, instanceID)
   return tagValue
 

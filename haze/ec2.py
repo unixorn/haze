@@ -18,6 +18,17 @@ def loadInstanceMetadata():
   return boto.utils.get_instance_metadata(timeout=1, num_retries=3)
 
 
+def getMetadataKey(name):
+  """
+  Returns a given metadata key
+
+  :param str name: Name of key to retrieve
+  :returns: the value of the specified metadata key
+  :rtype: str
+  """
+  return loadInstanceMetadata()[name]
+
+
 def myInstanceID():
   """Determine the instance ID for the running instance
 

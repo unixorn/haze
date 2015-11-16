@@ -17,14 +17,16 @@ setup(
   install_requires = [
     "boto==2.38.0"
   ],
-  version = "0.0.8",
-  download_url = 'https://github.com/unixorn/haze/tarball/0.0.8',
+  version = "0.0.9",
+  download_url = 'https://github.com/unixorn/haze/tarball/0.0.9',
   keywords = ['aws', 'cloud'],
   entry_points = {
     "console_scripts": [
-      "haze-aws-instance-id = %s.cli.awsinstanceid:awsInstanceID" % name,
+      "haze-aws-ami-id = %s.cli.commands:awsAMIid" % name,
+      "haze-aws-instance-id = %s.cli.commands:awsInstanceID" % name,
+      "haze-aws-public-ipv4 = %s.cli.commands:awsPublicIPv4" % name,
       "haze-aws-read-metadata-key = %s.cli.awsmetadata:awsReadMetadataKey" % name,
-      "haze-aws-region = %s.cli.awsregion:awsMyRegion" % name
+      "haze-aws-region = %s.cli.commands:awsMyRegion" % name
     ]
   }
 )

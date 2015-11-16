@@ -7,12 +7,27 @@
 # I have often found it convenient to be able to read what instance ID an
 # instance is from inside bash provisioning scripts.
 
-from haze.ec2 import myInstanceID
+import haze.ec2
 
 # Bash helpers
 def awsInstanceID():
   """Print a running instance's instance ID"""
-  print myInstanceID()
+  print haze.ec2.myInstanceID()
+
+
+def awsAMIid():
+  """Print a running instance's AMI ID"""
+  print haze.ec2.myAMIid()
+
+
+def awsMyRegion():
+  """Print a running instance's AWS region"""
+  print haze.ec2.myRegion()
+
+
+def awsPublicIPv4():
+  """Print a running instance's AMI ID"""
+  print haze.ec2.myPublicIPv4()
 
 if __name__ == "__main__":
   awsInstanceID()

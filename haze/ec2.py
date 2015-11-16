@@ -29,6 +29,15 @@ def getMetadataKey(name):
   return loadInstanceMetadata()[name]
 
 
+def myAMIid():
+  """Determine the AMI ID for the running instance
+
+  :returns: ami ID
+  :rtype: str
+  """
+  return loadInstanceMetadata()["ami-id"]
+
+
 def myInstanceID():
   """Determine the instance ID for the running instance
 
@@ -36,6 +45,15 @@ def myInstanceID():
   :rtype: str
   """
   return loadInstanceMetadata()["instance-id"]
+
+
+def myPublicIPv4():
+  """Determine the public IP v4 for the running instance
+
+  :returns: Instance's public IP v4
+  :rtype: str
+  """
+  return loadInstanceMetadata()["public-ipv4"]
 
 
 def myRegion():

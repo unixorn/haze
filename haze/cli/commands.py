@@ -10,14 +10,19 @@
 import haze.ec2
 
 # Bash helpers
+def awsAMIid():
+  """Print a running instance's AMI ID"""
+  print haze.ec2.myAMIid()
+
+
 def awsInstanceID():
   """Print a running instance's instance ID"""
   print haze.ec2.myInstanceID()
 
 
-def awsAMIid():
-  """Print a running instance's AMI ID"""
-  print haze.ec2.myAMIid()
+def awsInstanceType():
+  """Print a running instance's instance type"""
+  print haze.ec2.myInstanceType()
 
 
 def awsMyRegion():
@@ -28,6 +33,8 @@ def awsMyRegion():
 def awsPublicIPv4():
   """Print a running instance's AMI ID"""
   print haze.ec2.myPublicIPv4()
+
+
 
 if __name__ == "__main__":
   awsInstanceID()

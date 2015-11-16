@@ -24,6 +24,7 @@ setup(
     "console_scripts": [
       "haze-aws-ami-id = %s.cli.commands:awsAMIid" % name,
       "haze-aws-instance-id = %s.cli.commands:awsInstanceID" % name,
+      "haze-aws-instance-type = %s.cli.commands:awsInstanceType" % name,
       "haze-aws-public-ipv4 = %s.cli.commands:awsPublicIPv4" % name,
       "haze-aws-read-metadata-key = %s.cli.awsmetadata:awsReadMetadataKey" % name,
       "haze-aws-region = %s.cli.commands:awsMyRegion" % name

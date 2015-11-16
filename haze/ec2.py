@@ -47,6 +47,15 @@ def myInstanceID():
   return loadInstanceMetadata()["instance-id"]
 
 
+def myInstanceType():
+  """Determine the instance type of the running instance
+
+  :returns: instance type
+  :rtype: str
+  """
+  return loadInstanceMetadata()["instance-type"]
+
+
 def myPublicIPv4():
   """Determine the public IP v4 for the running instance
 

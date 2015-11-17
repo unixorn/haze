@@ -31,13 +31,14 @@ setup(
   packages = find_packages(),
   install_requires = [
     "boto==2.38.0",
-    "logrus>=0.0.1"
+    "logrus>=0.0.2"
   ],
   version = version,
   download_url = "https://github.com/unixorn/haze/tarball/%s" % version,
   keywords = ['aws', 'cloud'],
   entry_points = {
     "console_scripts": [
+      "haze = %s.cli.conductor:hazeDriver" % name,
       "haze-aws-ami-id = %s.cli.commands:awsAMIid" % name,
       "haze-aws-instance-id = %s.cli.commands:awsInstanceID" % name,
       "haze-aws-instance-type = %s.cli.commands:awsInstanceType" % name,

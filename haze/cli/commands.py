@@ -1,11 +1,31 @@
 #!/usr/bin/env python
-# Copyright (c) 2015 Joe Block <jpb@unixorn.net>
 #
-# This code is released under the Apache 2.0 license
-# See the LICENSE file in this repository for details
+# Copyright 2015 Joe Block <jpb@unixorn.net>
 #
-# I have often found it convenient to be able to read what instance ID an
-# instance is from inside bash provisioning scripts.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+"""
+There are a lot of properties for a given instance in EC2 that have
+turned out to be really handy to access from bash scripts running on
+the instance.
+
+Trying to parse them directly in bash is more hassle than it is worth,
+and I've written some of these toy attribute readers three or four times
+because previous jobs never open sourced them.
+
+Rewriting some of these handy attribute readers one last time in an Apache
+licensed python module.
+"""
 
 import haze.ec2
 

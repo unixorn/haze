@@ -1,10 +1,22 @@
-# Copyright (c) 2015 Joe Block <jpb@unixorn.net>
+#!/usr/bin/env python
+# Copyright 2015 Joe Block <jpb@unixorn.net>
 #
-# This code is released under the Apache 2.0 license
-# See the LICENSE file in this repository for details
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
 #
-# I have often found it convenient to be able to read what AWS region
-# an instance is in inside bash scripts.
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+"""
+I have often found it convenient to be able to read arbitrary AWS metadata
+for an instance inside bash scripts running on the instance.
+"""
 
 import argparse
 from haze.ec2 import getMetadataKey

@@ -1,11 +1,26 @@
+#!/usr/bin/env python
+#
 # Haze
 #
-# Author: Joe Block <jpb@unixorn.net>
-# License: Apache 2.0
+# Copyright 2015 Joe Block <jpb@unixorn.net>
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
 
 from setuptools import setup, find_packages
 
 name = "haze"
+version = "0.0.10"
 
 setup(
   name = name,
@@ -15,10 +30,11 @@ setup(
   url = "https://github.com/unixorn/haze",
   packages = find_packages(),
   install_requires = [
-    "boto==2.38.0"
+    "boto==2.38.0",
+    "logrus>=0.0.1"
   ],
-  version = "0.0.9",
-  download_url = 'https://github.com/unixorn/haze/tarball/0.0.9',
+  version = version,
+  download_url = "https://github.com/unixorn/haze/tarball/%s" % version,
   keywords = ['aws', 'cloud'],
   entry_points = {
     "console_scripts": [

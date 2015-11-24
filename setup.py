@@ -16,27 +16,68 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+"""
+setup.py for haze
+"""
 
-from setuptools import setup, find_packages
+import os
+import shutil
+from setuptools import setup, find_packages, Command
 
 name = "haze"
-version = "0.0.10"
+version = "0.0.11"
+
+
+class CleanCommand(Command):
+  """
+  Add a clean option to setup.py's commands
+  """
+  description = "Clean up"
+  user_options = []
+
+
+  def initialize_options(self):
+    self.cwd = None
+
+
+  def finalize_options(self):
+    self.cwd = os.getcwd()
+
+
+  def run(self):
+    assert os.getcwd() == self.cwd, "Must be in package root: %s" % self.cwd
+    if os.path.isdir("build"):
+      shutil.rmtree("build")
+    if os.path.isdir("dist"):
+      shutil.rmtree("dist")
+
+
 
 setup(
-  name = name,
-  author = "Joe Block",
-  author_email = "jpb@unixorn.net",
-  description = "Haze is a collection of AWS utility functions",
-  url = "https://github.com/unixorn/haze",
-  packages = find_packages(),
-  install_requires = [
+  name=name,
+  author="Joe Block",
+  author_email="jpb@unixorn.net",
+  description="Haze is a collection of AWS utility functions",
+  url="https://github.com/unixorn/haze",
+  packages=find_packages(),
+  install_requires=[
     "boto==2.38.0",
     "logrus>=0.0.2"
   ],
-  version = version,
-  download_url = "https://github.com/unixorn/haze/tarball/%s" % version,
-  keywords = ['aws', 'cloud'],
-  entry_points = {
+  cmdclass={
+    "clean": CleanCommand,
+  },
+  version=version,
+  download_url="https://github.com/unixorn/haze/tarball/%s" % version,
+  classifiers=[
+    "Development Status :: 3 - Alpha",
+    "Operating System :: POSIX",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 2.7",
+    "Topic :: System :: Systems Administration",
+  ],
+  keywords=['aws', 'cloud'],
+  entry_points={
     "console_scripts": [
       "haze = %s.cli.conductor:hazeDriver" % name,
       "haze-aws-ami-id = %s.cli.commands:awsAMIid" % name,

@@ -25,7 +25,7 @@ import shutil
 from setuptools import setup, find_packages, Command
 
 name = "haze"
-version = "0.0.11"
+version = "0.0.12"
 
 
 class CleanCommand(Command):
@@ -61,7 +61,7 @@ setup(
   url="https://github.com/unixorn/haze",
   packages=find_packages(),
   install_requires=[
-    "boto==2.38.0",
+    "boto>=2.38.0",
     "logrus>=0.0.2"
   ],
   cmdclass={

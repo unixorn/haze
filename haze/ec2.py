@@ -18,6 +18,7 @@ Helper functions for use in ec2.
 
 import boto.ec2
 import boto.utils
+import subprocess
 
 
 # metadata helper functions
@@ -133,3 +134,28 @@ def readMyEC2Tag(tagName, connection=None):
   print readInstanceTag(connection=connection,
                         instanceID=myInstanceID(),
                         tagName=tagName)
+
+
+def system_call(command):
+  """Run a command and return stdout.
+
+  :param str command: command to run
+  :returns: output of the command
+  :rtype: str
+
+  Would be better to use subprocess.check_output, but this works on 2.6,
+  which is still the system Python on CentOS 7.
+  """
+  p = subprocess.Popen([command], stdout=subprocess.PIPE, shell=True)
+  return p.stdout.read()
+
+
+def inEC2():
+  """Detect if we're running in EC2.
+
+  This check only works if we're running as root
+  """
+  dmidata = system_call('dmidecode -s bios-version').strip().lower()
+  return 'amazon' in dmidata
+
+

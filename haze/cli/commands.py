@@ -55,6 +55,18 @@ def awsPublicIPv4():
   print haze.ec2.myPublicIPv4()
 
 
+def awsReadInstanceTag():
+  """Print key from a running instance's metadata"""
+  parser = argparse.ArgumentParser()
+
+  parser.add_argument("--tag",
+                      dest="tag",
+                      required=True,
+                      help="Which instance tag to read")
+
+  cli = parser.parse_args()
+  print haze.ec2.readMyEC2tag(tagName=cli.tag)
+
 
 if __name__ == "__main__":
   awsInstanceID()

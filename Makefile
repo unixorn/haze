@@ -5,3 +5,5 @@ upload: docs
 	python setup.py sdist upload -r pypi
 	python setup.py bdist_wheel upload -r pypi
 
+develop: docs
+	python setup.py develop

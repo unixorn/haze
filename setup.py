@@ -2,7 +2,7 @@
 #
 # Haze
 #
-# Copyright 2015 Joe Block <jpb@unixorn.net>
+# Copyright 2015-2017 Joe Block <jpb@unixorn.net>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -24,15 +24,15 @@ import os
 import shutil
 from setuptools import setup, find_packages, Command
 
-name = "haze"
-version = "0.0.15"
+name = 'haze'
+version = '0.0.15'
 
 
 class CleanCommand(Command):
   """
   Add a clean option to setup.py's commands
   """
-  description = "Clean up"
+  description = 'Clean up'
   user_options = []
 
 
@@ -46,10 +46,10 @@ class CleanCommand(Command):
 
   def run(self):
     assert os.getcwd() == self.cwd, "Must be in package root: %s" % self.cwd
-    if os.path.isdir("build"):
-      shutil.rmtree("build")
-    if os.path.isdir("dist"):
-      shutil.rmtree("dist")
+    if os.path.isdir('build'):
+      shutil.rmtree('build')
+    if os.path.isdir('dist'):
+      shutil.rmtree('dist')
 
 
 
@@ -85,6 +85,7 @@ setup(
       "haze-aws-instance-id = %s.cli.commands:awsInstanceID" % name,
       "haze-aws-instance-type = %s.cli.commands:awsInstanceType" % name,
       "haze-aws-public-ipv4 = %s.cli.commands:awsPublicIPv4" % name,
+      "haze-aws-read-instance-tag = %s.cli.commands:awsReadInstanceTag" % name,
       "haze-aws-read-metadata-key = %s.cli.awsmetadata:awsReadMetadataKey" % name,
       "haze-aws-region = %s.cli.commands:awsMyRegion" % name
     ]

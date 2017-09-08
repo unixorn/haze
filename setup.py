@@ -25,7 +25,7 @@ import shutil
 from setuptools import setup, find_packages, Command
 
 name = 'haze'
-version = '0.0.15'
+version = '0.0.16'
 
 
 class CleanCommand(Command):

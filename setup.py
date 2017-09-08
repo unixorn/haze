@@ -80,6 +80,7 @@ setup(
   entry_points={
     "console_scripts": [
       "haze = %s.cli.conductor:hazeDriver" % name,
+      "haze-aws-account-id = %s.ec2:getAWSAccountID" % name,
       "haze-aws-ami-id = %s.cli.commands:awsAMIid" % name,
       "haze-aws-instance-id = %s.cli.commands:awsInstanceID" % name,
       "haze-aws-instance-type = %s.cli.commands:awsInstanceType" % name,

@@ -19,6 +19,24 @@ Helper functions for use in ec2.
 import boto.ec2
 import boto.utils
 import subprocess
+import urllib2
+
+
+def getAWSAccountID():
+  '''
+  Print an instance's AWS account number or 0 when not in EC2
+  '''
+  link = "http://169.254.169.254/latest/dynamic/instance-identity/document"
+  try:
+    conn = urllib2.urlopen(url=link, timeout=5)
+  except urllib2.URLError:
+    print '0'
+    sys.exit(1)
+  jsonData = json.loads(conn.read())
+  return jsonData['accountId']
+
+if __name__ == '__main__':
+  print getAWSaccountID()
 
 
 # metadata helper functions

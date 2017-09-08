@@ -27,7 +27,7 @@ def getAWSAccountID():
   '''
   Print an instance's AWS account number or 0 when not in EC2
   '''
-  link = "http://169.254.169.252/latest/dynamic/instance-identity/document"
+  link = "http://169.254.169.254/latest/dynamic/instance-identity/document"
   try:
     conn = urllib2.urlopen(url=link, timeout=5)
   except urllib2.URLError:

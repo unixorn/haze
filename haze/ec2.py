@@ -16,11 +16,11 @@
 Helper functions for use in ec2.
 """
 
-import boto.ec2
-import boto.utils
 import json
 import subprocess
 import urllib2
+import boto.ec2
+import boto.utils
 
 
 def getAWSAccountID():
@@ -146,9 +146,9 @@ def readMyEC2Tag(tagName, connection=None):
     # Assume AWS credentials are in the environment or the instance is using an IAM role
     connection = boto.ec2.connect_to_region(myRegion())
 
-  print readInstanceTag(connection=connection,
-                        instanceID=myInstanceID(),
-                        tagName=tagName)
+  return readInstanceTag(connection=connection,
+                         instanceID=myInstanceID(),
+                         tagName=tagName)
 
 
 def system_call(command):
@@ -172,5 +172,3 @@ def inEC2():
   """
   dmidata = system_call('dmidecode -s bios-version').strip().lower()
   return 'amazon' in dmidata
-
-

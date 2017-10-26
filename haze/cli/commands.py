@@ -27,7 +27,9 @@ Rewriting some of these handy attribute readers one last time in an Apache
 licensed python module.
 """
 
+import argparse
 import haze.ec2
+
 
 # Bash helpers
 def awsAMIid():
@@ -65,7 +67,7 @@ def awsReadInstanceTag():
                       help="Which instance tag to read")
 
   cli = parser.parse_args()
-  print haze.ec2.readMyEC2tag(tagName=cli.tag)
+  print haze.ec2.readMyEC2Tag(tagName=cli.tag)
 
 
 if __name__ == "__main__":

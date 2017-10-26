@@ -22,7 +22,10 @@ setup.py for haze
 
 import os
 import shutil
+import subprocess
+
 from setuptools import setup, find_packages, Command
+
 
 def system_call(command):
   """Run a command and return stdout.
